@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import { TestDB } from "./test-db";
+import { TestDB } from "./test-db.js";
 
 const app = express();
 app.use(cors("https://localhost:3000"));
