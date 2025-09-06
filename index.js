@@ -11,5 +11,5 @@ app.get("/", (req, res) => {
   TestDB();
 });
 
-const PORT = 5000;
-app.listen(PORT, () => console.log(`Server running on port 5000 ${PORT}`));
+const PORT = 3000;
+app.listen(PORT, () => console.log(`Server running on port 3000 ${PORT}`));
