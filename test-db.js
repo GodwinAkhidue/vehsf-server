@@ -11,12 +11,14 @@ const client = new Client({
   port: process.env.POSTGRESQL_PORT,
 });
 
-client
-  .connect()
-  .then(() => console.log("✅ Connected to PostgreSQL"))
-  .then(() => client.query("SELECT NOW()"))
-  .then((res) => {
-    console.log("⏰ DB Time:", res.rows[0]);
-    client.end();
-  })
-  .catch((err) => console.error("❌ Connection error", err.stack));
+export function TestDB() {
+  client
+    .connect()
+    .then(() => console.log("✅ Connected to PostgreSQL"))
+    .then(() => client.query("SELECT NOW()"))
+    .then((res) => {
+      console.log("⏰ DB Time:", res.rows[0]);
+      client.end();
+    })
+    .catch((err) => console.error("❌ Connection error", err.stack));
+}
