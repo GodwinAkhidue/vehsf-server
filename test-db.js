@@ -1,9 +1,9 @@
-import { Client } from "pg";
+import { Pool } from "pg";
 import dotenv from "dotenv";
 
 dotenv.config();
 
-const client = new Client({
+const pool = new Pool({
   host: process.env.POSTGRESQL_HOST,
   user: process.env.POSTGRESQL_USER,
   password: process.env.POSTGRESQL_PASSWORD,
@@ -12,14 +12,9 @@ const client = new Client({
 });
 
 export async function TestDB() {
-  await client
-    .connect()
-    .then(() => console.log("✅ Connected to PostgreSQL"))
-    .then(async () => {
-      const res = await client.query("SELECT NOW()");
-      console.log("⏰ DB Time:", res.rows[0]);
-      client.end();
-      return `DB TIME: ${res.rows[0]}`;
-    })
-    .catch((err) => console.error("❌ Connection error", err.stack));
+  const db = await pool.connect();
+
+  const res = await db.query(`SELECT NOW();`);
+
+  return `DB TEST: ${res.rows[0]}`;
 }
