@@ -8,7 +8,7 @@ app.use(express.json());
 
 app.get("/", async (req, res) => {
   const val = await TestDB();
-  res.send(`running: ${val}`);
+  res.send(`running: ${JSON.stringify(val)}`);
 });
 
 const PORT = 5000;
