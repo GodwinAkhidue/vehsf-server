@@ -11,14 +11,15 @@ const client = new Client({
   port: process.env.POSTGRESQL_PORT,
 });
 
-export function TestDB() {
-  client
+export async function TestDB() {
+  await client
     .connect()
     .then(() => console.log("✅ Connected to PostgreSQL"))
-    .then(() => client.query("SELECT NOW()"))
-    .then((res) => {
+    .then(async () => {
+      const res = await client.query("SELECT NOW()");
       console.log("⏰ DB Time:", res.rows[0]);
       client.end();
+      return `DB TIME: ${res.rows[0]}`;
     })
     .catch((err) => console.error("❌ Connection error", err.stack));
 }

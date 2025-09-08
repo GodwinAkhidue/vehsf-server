@@ -6,9 +6,9 @@ const app = express();
 app.use(cors("https://localhost:3000"));
 app.use(express.json());
 
-app.get("/", (req, res) => {
-  res.send("VEHSF API running");
-  TestDB();
+app.get("/", async (req, res) => {
+  const val = await TestDB();
+  res.send(`running: ${val}`);
 });
 
 const PORT = 3000;
