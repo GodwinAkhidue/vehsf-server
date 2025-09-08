@@ -16,5 +16,5 @@ export async function TestDB() {
 
   const res = await db.query(`SELECT NOW();`);
 
-  return `DB TEST: ${res.rows[0]}`;
+  return `DB TEST: ${JSON.stringify(res.rows[0])}`;
 }
