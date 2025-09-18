@@ -1,0 +1,12 @@
+import express from "express";
+import create from "./create/route";
+import get_all from "./get-all/route";
+import remove from "./delete/route";
+
+const skills = express();
+skills.use(express.json());
+skills.use("/", create);
+skills.use("/", get_all);
+skills.use("/", remove);
+
+export default skills;
