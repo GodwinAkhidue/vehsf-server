@@ -1,5 +1,5 @@
 import express from "express";
-import { cloudinary_upload_local_file_path } from "../../../config/cloudinary";
+import { cloudinary_upload_local_file_path } from "../../../config/cloudinary.js";
 import multer from "multer";
 
 export const local_file_path = express();

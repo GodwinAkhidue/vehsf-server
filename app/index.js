@@ -1,9 +1,9 @@
 import express from "express";
-import Create_Tables from "./create_tables/route";
-import skills from "./skills/route";
-import cloudinary from "./cloudinary/route";
-import auth from "./auth/route";
-import user from "./user/route";
+import Create_Tables from "./create_tables/route.js";
+import skills from "./skills/route.js";
+import cloudinary from "./cloudinary/route.js";
+import auth from "./auth/route.js";
+import user from "./user/route.js";
 
 const root = express();
 root.use(express.json());

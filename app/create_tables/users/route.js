@@ -1,14 +1,14 @@
-import { Query_Psql_DB } from "../../../config/psql_config";
-import uuid_ossp from "./uuid-ossp";
+import { Query_Psql_DB } from "../../../config/psql_config.js";
+import uuid_ossp from "./uuid-ossp.js";
 
 export default async function Users() {
-    const result = await uuid_ossp();
+  const result = await uuid_ossp();
 
-    if (!result) {
-        return false;
-    }
+  if (!result) {
+    return false;
+  }
 
-    const query = `CREATE TABLE IF NOT EXISTS users (
+  const query = `CREATE TABLE IF NOT EXISTS users (
         id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
         email VARCHAR UNIQUE,
         password VARCHAR,
@@ -33,12 +33,12 @@ export default async function Users() {
         created_at TIMESTAMP DEFAULT NOW()
     );`;
 
-    const response = await Query_Psql_DB(query);
-    const { error } = response;
+  const response = await Query_Psql_DB(query);
+  const { error } = response;
 
-    if (error) {
-        return false;
-    }
+  if (error) {
+    return false;
+  }
 
-    return true;
+  return true;
 }

@@ -1,7 +1,7 @@
 import express from "express";
-import { local_file_path } from "./upload/route";
-import { public_id } from "./delete/route";
-import { form_data } from "./upload/route";
+import { local_file_path } from "./upload/route.js";
+import { public_id } from "./delete/route.js";
+import { form_data } from "./upload/route.js";
 
 const cloudinary = express();
 cloudinary.use(express.json());

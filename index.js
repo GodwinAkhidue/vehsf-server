@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import root from "./app";
+import root from "./app/index.js";
 
 const app = express();
 app.use(cors({ origin: "https://vehsf.com", credentials: true }));

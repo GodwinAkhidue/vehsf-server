@@ -1,5 +1,5 @@
-import Skills from "./skills/route";
-import Users from "./users/route";
+import Skills from "./skills/route.js";
+import Users from "./users/route.js";
 
 export default async function Create_Tables() {
   const skills = await Skills();

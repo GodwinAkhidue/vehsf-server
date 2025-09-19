@@ -1,4 +1,4 @@
-export default function Input_Validator(body: any) {
+export default function Input_Validator(body) {
   const { name } = body;
 
   if (typeof name !== "string") {

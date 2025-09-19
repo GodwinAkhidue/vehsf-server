@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-const port: any = process.env.POSTGRESQL_PORT;
+const port = process.env.POSTGRESQL_PORT;
 
 const pool = new Pool({
   host: process.env.POSTGRESQL_HOST,
@@ -19,7 +19,7 @@ pool.on("error", (err) => {
   console.log("Unexpected error on idle client", err);
 });
 
-export async function Query_Psql_DB(query: string, values?: any[]) {
+export async function Query_Psql_DB(query, values = []) {
   try {
     const db = await pool.connect();
     const result = await db.query(query, values);

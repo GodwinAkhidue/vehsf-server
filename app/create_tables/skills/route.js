@@ -1,4 +1,4 @@
-import { Query_Psql_DB } from "../../../config/psql_config";
+import { Query_Psql_DB } from "../../../config/psql_config.js";
 
 export default async function Skills() {
   const query = `CREATE TABLE IF NOT EXISTS skills (

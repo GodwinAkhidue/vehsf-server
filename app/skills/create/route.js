@@ -1,6 +1,6 @@
 import express from "express";
-import Input_Validator from "./input-validator";
-import { Query_Psql_DB } from "../../../config/psql_config";
+import Input_Validator from "./input-validator.js";
+import { Query_Psql_DB } from "../../../config/psql_config.js";
 
 const create = express();
 create.use(express.json());

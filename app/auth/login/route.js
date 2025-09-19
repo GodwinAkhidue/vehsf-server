@@ -1,7 +1,7 @@
 import express from "express";
-import { Query_Psql_DB } from "../../../config/psql_config";
+import { Query_Psql_DB } from "../../../config/psql_config.js";
 import argon2 from "argon2";
-import generateToken from "../../../config/jwt";
+import generateToken from "../../../config/jwt.js";
 
 const login = express();
 login.use(express.json());

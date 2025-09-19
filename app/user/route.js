@@ -1,5 +1,5 @@
 import express from "express";
-import profile_card from "./profile_card/route";
+import profile_card from "./profile_card/route.js";
 import cookieParser from "cookie-parser";
 
 const user = express();

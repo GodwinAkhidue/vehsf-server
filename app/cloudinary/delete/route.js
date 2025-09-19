@@ -1,5 +1,5 @@
 import express from "express";
-import { cloudinary_delete_by_public_id } from "../../../config/cloudinary";
+import { cloudinary_delete_by_public_id } from "../../../config/cloudinary.js";
 
 export const public_id = express();
 public_id.use(express.json());

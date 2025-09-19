@@ -1,6 +1,6 @@
 import express from "express";
-import signup from "./signup/route";
-import login from "./login/route";
+import signup from "./signup/route.js";
+import login from "./login/route.js";
 
 const auth = express();
 auth.use(express.json());

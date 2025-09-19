@@ -1,7 +1,7 @@
 import express from "express";
 import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
-import { Query_Psql_DB } from "../../../config/psql_config";
+import { Query_Psql_DB } from "../../../config/psql_config.js";
 
 dotenv.config();
 
@@ -10,7 +10,7 @@ profile_card.use(express.json());
 
 profile_card.get(`/api/user/profile-card`, async (req, res) => {
   const token = req.cookies.authToken;
-  const key: any = process.env.JWT_SECRET_KEY;
+  const key = process.env.JWT_SECRET_KEY;
 
   if (!token) {
     console.log("No login detected");
@@ -20,7 +20,7 @@ profile_card.get(`/api/user/profile-card`, async (req, res) => {
   }
 
   try {
-    const details: any = jwt.verify(token, key);
+    const details = jwt.verify(token, key);
     const query = `
         SELECT firstname, lastname, profile_picture 
         FROM users

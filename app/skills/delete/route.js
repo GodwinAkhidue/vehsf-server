@@ -1,5 +1,5 @@
 import express from "express";
-import { Query_Psql_DB } from "../../../config/psql_config";
+import { Query_Psql_DB } from "../../../config/psql_config.js";
 
 const remove = express();
 remove.use(express.json());
