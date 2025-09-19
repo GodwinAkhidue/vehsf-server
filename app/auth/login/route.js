@@ -1,7 +1,7 @@
 import express from "express";
 import { Query_Psql_DB } from "../../../config/psql_config.js";
-import argon2 from "argon2";
 import generateToken from "../../../config/jwt.js";
+import bcrypt from "bcrypt";
 
 const login = express();
 login.use(express.json());
@@ -30,7 +30,7 @@ login.post(`/api/auth/login`, async (req, res) => {
   const hashedPassword = result.rows[0].password;
 
   try {
-    const match = await argon2.verify(hashedPassword, password);
+    const match = await bcrypt.compare(password, hashedPassword);
     if (match) {
       const id = result.rows[0].id;
       const token = generateToken(id);

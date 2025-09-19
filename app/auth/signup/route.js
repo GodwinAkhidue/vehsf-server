@@ -1,7 +1,7 @@
 import express from "express";
 import { Query_Psql_DB } from "../../../config/psql_config.js";
-import argon2 from "argon2";
 import generateToken from "../../../config/jwt.js";
+import bcrypt from "bcrypt";
 
 const signup = express();
 signup.use(express.json());
@@ -10,7 +10,7 @@ signup.post(`/api/auth/signup`, async (req, res) => {
   const { data, profile_picture, resume_cv } = req.body;
 
   try {
-    const hashedPassword = await argon2.hash(data.password);
+    const hashedPassword = await bcrypt.hash(data.password, 12);
     const response = await Query_Psql_DB(
       `
       INSERT INTO users (
