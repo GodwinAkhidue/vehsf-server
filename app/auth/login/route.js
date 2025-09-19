@@ -1,7 +1,7 @@
 import express from "express";
 import { Query_Psql_DB } from "../../../config/psql_config.js";
 import generateToken from "../../../config/jwt.js";
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 
 const login = express();
 login.use(express.json());
