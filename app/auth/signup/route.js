@@ -9,7 +9,8 @@ signup.use(express.json());
 
 signup.post(`/api/auth/signup`, async (req, res) => {
   const { data, profile_picture, resume_cv } = req.body;
-  const id = uuidv4();
+  console.log("called");
+  const userid = uuidv4();
   try {
     const hashedPassword = await bcrypt.hash(data.password, 12);
     const response = await Query_Psql_DB(
@@ -38,12 +39,12 @@ signup.post(`/api/auth/signup`, async (req, res) => {
         ngo_location
       ) VALUES (
         $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, 
-        $11, $12, $13, $14, $15, $16, $17, $18, $19, $20
+        $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21
       )
       RETURNING id;
     `,
       [
-        id,
+        userid,
         data.email,
         hashedPassword,
         data.role,
@@ -76,6 +77,7 @@ signup.post(`/api/auth/signup`, async (req, res) => {
           message: "Email already in use",
         });
       }
+      console.log(error);
       return res.status(200).json({
         success: false,
         message: "Could not signup, please try again shortly",
@@ -94,7 +96,8 @@ signup.post(`/api/auth/signup`, async (req, res) => {
 
     return res.status(200).json({ success: true });
   } catch (err) {
-    res.status(200).json({
+    console.log(err);
+    return res.status(200).json({
       success: false,
       message: "Could not signup, please try again shortly",
     });

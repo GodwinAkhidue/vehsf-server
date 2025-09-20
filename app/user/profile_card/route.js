@@ -13,7 +13,6 @@ profile_card.get(`/api/user/profile-card`, async (req, res) => {
   const key = process.env.JWT_SECRET_KEY;
 
   if (!token) {
-    console.log("No login detected");
     return res
       .status(200)
       .json({ success: false, message: "No login detected" });
@@ -31,10 +30,8 @@ profile_card.get(`/api/user/profile-card`, async (req, res) => {
       const profileCard = result.rows[0];
       return res.status(200).json({ success: true, profileCard });
     }
-    console.log(error);
     return res.status(200).json({ success: false, message: "Error" });
   } catch (err) {
-    console.log(err);
     return res.status(200).json({ success: false, message: "Error" });
   }
 });
