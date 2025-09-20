@@ -1,15 +1,8 @@
 import { Query_Psql_DB } from "../../../config/psql_config.js";
-import uuid_ossp from "./uuid-ossp.js";
 
 export default async function Users() {
-  const result = await uuid_ossp();
-
-  if (!result) {
-    return false;
-  }
-
   const query = `CREATE TABLE IF NOT EXISTS users (
-        id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+        id VARCHAR UNIQUE,
         email VARCHAR UNIQUE,
         password VARCHAR,
         role VARCHAR,
