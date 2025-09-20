@@ -3,7 +3,7 @@ import cors from "cors";
 import root from "./app/index.js";
 
 const app = express();
-app.use(cors({ origin: "https://vehsf.com", credentials: true }));
+app.use(cors({ origin: "https://vehsf.vercel.app", credentials: true }));
 app.use(express.json());
 
 app.use("", root);
