@@ -1,8 +1,10 @@
 import express from "express";
 import cors from "cors";
 import root from "./app/index.js";
+import cookieParser from "cookie-parser";
 
 const app = express();
+app.use(cookieParser());
 app.use(cors({ origin: "https://vehsf.vercel.app", credentials: true }));
 app.use(express.json());
 

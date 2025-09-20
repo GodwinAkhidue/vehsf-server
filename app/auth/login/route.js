@@ -38,8 +38,10 @@ login.post(`/api/auth/login`, async (req, res) => {
       res.cookie("authToken", token, {
         httpOnly: true,
         secure: true,
-        sameSite: "strict",
-        maxAge: 604800000, //7 days in milliseconds
+        sameSite: "None",
+        domain: ".vehsf.com",
+        path: "/",
+        maxAge: 1000 * 60 * 60 * 24 * 7, //7 days in milliseconds
       });
 
       return res.status(200).json({ success: true });

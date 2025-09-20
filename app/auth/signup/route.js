@@ -91,7 +91,9 @@ signup.post(`/api/auth/signup`, async (req, res) => {
       httpOnly: true,
       secure: true,
       sameSite: "None",
-      maxAge: 604800000, //7 days in milliseconds
+      domain: ".vehsf.com",
+      path: "/",
+      maxAge: 1000 * 60 * 60 * 24 * 7, //7 days in milliseconds
     });
 
     return res.status(200).json({ success: true });
