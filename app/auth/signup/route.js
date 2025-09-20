@@ -90,7 +90,7 @@ signup.post(`/api/auth/signup`, async (req, res) => {
     res.cookie("authToken", token, {
       httpOnly: true,
       secure: true,
-      sameSite: "strict",
+      sameSite: "None",
       maxAge: 604800000, //7 days in milliseconds
     });
 
