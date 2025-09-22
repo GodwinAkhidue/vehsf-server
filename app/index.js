@@ -4,6 +4,7 @@ import skills from "./skills/route.js";
 import cloudinary from "./cloudinary/route.js";
 import auth from "./auth/route.js";
 import user from "./user/route.js";
+import donations from "./donations/route.js";
 
 const root = express();
 root.use(express.json());
@@ -11,6 +12,7 @@ root.use("/", skills);
 root.use("/", cloudinary);
 root.use("/", auth);
 root.use("/", user);
+root.use("/", donations);
 
 root.get(`/`, async (_, res) => {
   const create_tables = await Create_Tables();

@@ -13,6 +13,14 @@ profile_card.get(`/api/user/profile-card`, async (req, res) => {
   const key = process.env.JWT_SECRET_KEY;
 
   if (!token) {
+    res.clearCookie("authToken", {
+      httpOnly: true,
+      secure: true,
+      sameSite: "None",
+      domain: ".vehsf.com",
+      path: "/",
+    });
+
     return res
       .status(200)
       .json({ success: false, message: "No login detected" });
