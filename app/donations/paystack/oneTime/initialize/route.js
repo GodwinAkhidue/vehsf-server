@@ -99,9 +99,11 @@ initialize.post(
         .status(200)
         .json({ success: false, message: "Failed to initialize transaction" });
     } catch (err) {
-      return res
-        .status(200)
-        .json({ success: false, message: "Failed to initialize transaction" });
+      return res.status(200).json({
+        success: false,
+        message: "Failed to initialize transaction",
+        err: JSON.stringify(err),
+      });
     }
   }
 );
