@@ -102,7 +102,6 @@ initialize.post(
       return res.status(200).json({
         success: false,
         message: "Failed to initialize transaction",
-        err: JSON.stringify(err),
       });
     }
   }

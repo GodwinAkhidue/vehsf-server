@@ -11,7 +11,8 @@ export default async function Donations() {
         lastname VARCHAR,
         email VARCHAR,
         transactionReference VARCHAR UNIQUE,
-        status VARCHAR
+        status VARCHAR,
+        created_at TIMESTAMP DEFAULT NOW()
     );`;
 
   const response = await Query_Psql_DB(query);

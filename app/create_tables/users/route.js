@@ -23,7 +23,10 @@ export default async function Users() {
         emergency_contact_phone JSONB,
         ngo_position VARCHAR,
         ngo_location JSONB,
-        created_at TIMESTAMP DEFAULT NOW()
+        created_at TIMESTAMP DEFAULT NOW(),
+        verification_code INT,
+        verification_code_expiry TIMESTAMP,
+        verification_code_used BOOLEAN DEFAULT FALSE
     );`;
 
   const response = await Query_Psql_DB(query);
