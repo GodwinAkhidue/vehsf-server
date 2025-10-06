@@ -18,7 +18,8 @@ updatePassword.post(`/api/auth/updatePassword`, limiter, async (req, res) => {
   const query = `
         SELECT verification_code, verification_code_expiry, verification_code_used
         FROM users
-        WHERE email = $1`;
+        WHERE email = $1
+        LIMIT 1`;
 
   const values = [email];
 

@@ -1,8 +1,8 @@
 import express from "express";
-import profile_card from "./profile_card/route.js";
+import update from "./update/route.js";
 
 const user = express();
 user.use(express.json());
-user.use("", profile_card);
+user.use("", update);
 
 export default user;

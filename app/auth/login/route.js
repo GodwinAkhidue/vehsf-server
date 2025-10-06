@@ -10,7 +10,8 @@ login.post(`/api/auth/login`, async (req, res) => {
   const { email, password } = req.body;
   const query = `SELECT id, password
          FROM users
-         WHERE email = $1;`;
+         WHERE email = $1
+         LIMIT 1;`;
   const values = [email];
 
   const { error, result } = await Query_Psql_DB(query, values);
