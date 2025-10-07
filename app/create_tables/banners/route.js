@@ -6,7 +6,8 @@ export default async function Banners() {
         background_image JSONB,
         title VARCHAR,
         person_image JSONB,
-        small_image JSONB
+        small_image JSONB,
+        location VARCHAR
     );`;
 
   const response = await Query_Psql_DB(query);
