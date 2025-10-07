@@ -11,7 +11,22 @@ dotenv.config();
 
 const app = express();
 app.use(cookieParser());
-app.use(cors({ origin: client_url, credentials: true }));
+
+const allowedOrigins = ["https://vehsf.com", "https://admin.vehsf.com"];
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      // Allow requests with no origin (like mobile apps or curl)
+      if (!origin) return callback(null, true);
+      if (allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true,
+  })
+);
 app.use(express.json());
 
 app.use("", root);
