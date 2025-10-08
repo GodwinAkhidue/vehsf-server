@@ -12,7 +12,7 @@ dotenv.config();
 const app = express();
 app.use(cookieParser());
 
-const allowedOrigins = ["https://vehsf.com", "https://admin.vehsf.com"];
+const allowedOrigins = ["https://www.vehsf.com", "https://admin.vehsf.com"];
 app.use(
   cors({
     origin: function (origin, callback) {
