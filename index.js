@@ -4,7 +4,6 @@ import root from "./app/index.js";
 import cookieParser from "cookie-parser";
 import admin from "./admin/index.js";
 import dotenv from "dotenv";
-import createAdmin from "./temp/createAdmin/route.js";
 
 dotenv.config();
 
@@ -34,7 +33,6 @@ app.use(
 app.use(express.json());
 
 app.use("", root);
-app.use("", createAdmin);
 app.use("", admin);
 
 const PORT = process.env.PORT;
