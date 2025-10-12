@@ -2,8 +2,6 @@ import express from "express";
 import cors from "cors";
 import root from "./app/index.js";
 import cookieParser from "cookie-parser";
-import { client_url } from "./constants/client.js";
-import deleteTables from "./temp/deleteTables.js";
 import admin from "./admin/index.js";
 import dotenv from "dotenv";
 
@@ -12,7 +10,12 @@ dotenv.config();
 const app = express();
 app.use(cookieParser());
 
-const allowedOrigins = ["https://www.vehsf.com", "https://admin.vehsf.com", "https://vehsf.com"];
+const allowedOrigins = [
+  "https://www.vehsf.com",
+  "https://admin.vehsf.com",
+  "https://vehsf.com",
+  "http://localhost:3000",
+];
 app.use(
   cors({
     origin: function (origin, callback) {
@@ -30,7 +33,6 @@ app.use(
 app.use(express.json());
 
 app.use("", root);
-app.use("", deleteTables);
 app.use("", admin);
 
 const PORT = process.env.PORT;
