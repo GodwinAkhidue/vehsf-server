@@ -1,6 +1,6 @@
 import express from "express";
 import { v4 as uuidv4 } from "uuid";
-import { Query_Psql_DB } from "../../config/psql_config";
+import { Query_Psql_DB } from "../../config/psql_config.js";
 import bcrypt from "bcryptjs";
 
 const createAdmin = express();
