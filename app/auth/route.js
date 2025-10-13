@@ -4,6 +4,7 @@ import login from "./login/route.js";
 import validateSession from "./validateSession/route.js";
 import verificationCode from "./verificationCode/route.js";
 import updatePassword from "./updatePassword/route.js";
+import logout from "./logout/route.js";
 
 const auth = express();
 auth.use(express.json());
@@ -12,5 +13,6 @@ auth.use("", login);
 auth.use("", validateSession);
 auth.use("", verificationCode);
 auth.use("", updatePassword);
+auth.use("", logout);
 
 export default auth;
