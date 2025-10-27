@@ -1,0 +1,15 @@
+import { Query_Psql_DB } from "../../../config/psql_config.js";
+
+export default async function Ngo_Positions() {
+  const query = `CREATE TABLE IF NOT EXISTS ngo_positions (
+        name VARCHAR UNIQUE
+    );`;
+
+  const response = await Query_Psql_DB(query);
+  const { error } = response;
+
+  if (error) {
+    return false;
+  }
+  return true;
+}

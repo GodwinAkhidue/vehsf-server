@@ -7,6 +7,7 @@ import banners from "./banners/route.js";
 import news_and_blogs from "./news-and-blogs/route.js";
 import explore_impact from "./explore-impact/route.js";
 import donations from "./donations/route.js";
+import ngo_positions from "./ngo-positions/route.js";
 
 const admin = express();
 admin.use(express.json());
@@ -17,5 +18,6 @@ admin.use("", AdminShield, banners);
 admin.use("", AdminShield, news_and_blogs);
 admin.use("", AdminShield, explore_impact);
 admin.use("", AdminShield, donations);
+admin.use("", AdminShield, ngo_positions);
 
 export default admin;

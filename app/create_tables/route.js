@@ -5,6 +5,7 @@ import Users from "./users/route.js";
 import Hero_Banners from "./hero-banners/route.js";
 import NewsAndBlogs from "./news-and-blogs/route.js";
 import ExploreImpact from "./explore-impact/route.js";
+import Ngo_Positions from "./ngo-positions/route.js";
 
 export default async function Create_Tables() {
   const skills = await Skills();
@@ -14,6 +15,7 @@ export default async function Create_Tables() {
   const hero_banners = await Hero_Banners();
   const news_and_blogs = await NewsAndBlogs();
   const explore_impact = await ExploreImpact();
+  const ngo_positions = await Ngo_Positions();
 
   if (
     !skills ||

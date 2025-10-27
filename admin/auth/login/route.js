@@ -51,9 +51,9 @@ login.post(`/api/admin/login`, async (req, res) => {
     res.cookie("authToken", token, {
       httpOnly: true,
       secure: true,
-      sameSite: "None",
-      domain: ".vehsf.com",
-      path: "/",
+      // sameSite: "None",
+      // domain: ".vehsf.com",
+      // path: "/",
       maxAge: 1000 * 60 * 60 * 24, //24 hours
     });
 

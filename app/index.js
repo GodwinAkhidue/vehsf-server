@@ -9,6 +9,7 @@ import banners from "./banners/route.js";
 import news_and_blogs from "./news-and-blogs/route.js";
 import explore_impact from "./explore-impact/route.js";
 import connect from "./connect/route.js";
+import ngo_positions from "./ngo-positions/route.js";
 
 const root = express();
 root.use(express.json());
@@ -21,6 +22,7 @@ root.use("/", banners);
 root.use("/", news_and_blogs);
 root.use("/", explore_impact);
 root.use("/", connect);
+root.use("/", ngo_positions);
 
 root.get(`/`, async (_, res) => {
   const create_tables = await Create_Tables();
