@@ -35,7 +35,7 @@ validateSession.get(`/api/auth/validateSession`, async (req, res) => {
   }
 
   const query = `
-    SELECT email, role, firstname, lastname, profile_picture
+    SELECT email, role, firstname, lastname, profile_picture, skills, availability
     FROM users
     WHERE id = $1
     LIMIT 1;
