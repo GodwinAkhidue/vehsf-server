@@ -14,6 +14,7 @@ complete.post(`/api/auth/signup/ngo/complete`, async (req, res) => {
   const { reference } = req.body;
   const userid = uuidv4();
 
+
   try {
     const url = `https://api.paystack.co/transaction/verify/${encodeURIComponent(
       reference
@@ -129,7 +130,7 @@ complete.post(`/api/auth/signup/ngo/complete`, async (req, res) => {
       });
     }
 
-    const id = result.rows[0].id;
+    const id = response.rows[0].id;
     const token = generateToken(id);
 
     res.cookie("authToken", token, {
